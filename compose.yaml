@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres:16.3-alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=fiber
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data
+  fiber-app:
+    build:
+      context: ./
+      # target: development
+    environment:
+      - DB_SERVER=db
+    ports:
+      - '5000:4000'
+
+volumes:
+  db:
+    driver: local
