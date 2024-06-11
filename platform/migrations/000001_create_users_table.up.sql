@@ -1,18 +1,18 @@
--- Enable the uuid-ossp extension
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+-- enable the uuid-ossp extension
+create extension if not exists "uuid-ossp";
 
--- Set timezone
-SET TIMEZONE="Europe/Madrid";
+-- set timezone
+set timezone="Europe/Madrid";
 
--- Create the Users table with a UUID id
-CREATE TABLE users (
-    id UUID DEFAULT uuid_generate_v4 () PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    password_hash VARCHAR(255) NOT NULL,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    user_attrs JSONB NOT NULL
+-- create the users table with a uuid id
+create table users (
+    id uuid default uuid_generate_v4 () primary key,
+    username varchar(255) not null,
+    email varchar(255) unique not null,
+    password_hash varchar(255) not null,
+    created_at timestamptz not null default now(),
+    updated_at timestamptz not null default now(),
+    user_attrs jsonb not null
 );
 
-CREATE INDEX idx_users_username ON users(username);
+create index idx_users_username on users(username);

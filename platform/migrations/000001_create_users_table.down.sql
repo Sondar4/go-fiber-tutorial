@@ -1,5 +1,5 @@
--- Drop the Users table
-DROP TABLE IF EXISTS Users;
+-- drop the users table
+drop table if exists users;
 
--- Optionally, drop the uuid-ossp extension if it's not needed elsewhere
-DROP EXTENSION IF EXISTS "uuid-ossp";
+-- optionally, drop the uuid-ossp extension if it's not needed elsewhere
+drop extension if exists "uuid-ossp";
